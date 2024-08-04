@@ -8,7 +8,6 @@ const generateToken = (id) => {
 
 exports.registerUser = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body;
-
   const userExists = await User.findOne({ email });
 
   if (userExists) {
