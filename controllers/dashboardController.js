@@ -1,6 +1,6 @@
-const Click = require('../models/Click');
-const Order = require('../models/Order');
-const asyncHandler = require('express-async-handler');
+const Click = require("../models/Click");
+const Order = require("../models/Order");
+const asyncHandler = require("express-async-handler");
 
 exports.getDashboard = asyncHandler(async (req, res) => {
   const clicks = await Click.find({ user_id: req.user._id });
@@ -11,8 +11,8 @@ exports.getDashboard = asyncHandler(async (req, res) => {
   }, 0);
 
   res.json({
-    numberOfClicks: clicks.length,
-    numberOfOrders: orders.length,
-    amountOfOrders,
+    clicks: clicks.length,
+    orders: orders.length,
+    amount: amountOfOrders,
   });
 });

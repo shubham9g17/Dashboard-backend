@@ -22,6 +22,7 @@ app.use("/api/dashboard", dashboardRoutes);
 app.use("/api/orders", orderRoutes);
 
 app.use((err, req, res, next) => {
+  console.log("Error in ", req.url, err.message);
   res.status(500).json({ message: err.message });
 });
 
