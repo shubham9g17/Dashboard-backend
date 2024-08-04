@@ -5,14 +5,14 @@ const authRoutes = require("./routes/authRoutes");
 const clickRoutes = require("./routes/clickRoutes");
 const dashboardRoutes = require("./routes/dashboardRoutes");
 const orderRoutes = require("./routes/orderRoutes");
-
+const cors = require("cors");
 dotenv.config();
 connectDB();
 
 const app = express();
 
 app.use(express.json());
-
+app.use(cors());
 app.get("/", (req, res) => {
   res.status(200).json({ message: "API is running" });
 });
